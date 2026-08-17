@@ -14,14 +14,27 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #a8d8f0 100%);
-            background-size: 400% 400%;
-            animation: bgMove 25s ease infinite;
+            background: #02030a;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            overflow: hidden;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        #space-bg {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .signup-container {
@@ -283,30 +296,15 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-                background: #02030a;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px;
-                overflow: hidden;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
 
-            body > * {
-                position: relative;
-                z-index: 1;
-            }
-
-            #space-bg {
-                position: fixed;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 0;
-                pointer-events: none;
-            }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
                 transform: translateY(-10px);
             }
             to {
@@ -519,7 +517,7 @@
             }, 5000);
         }
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/three@0.158/build/three.min.js"></script>
-        <script src="/js/space-bg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158/build/three.min.js"></script>
+    <script src="/js/space-bg.js"></script>
 </body>
 </html>
