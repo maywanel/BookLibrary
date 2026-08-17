@@ -54,7 +54,7 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateBook(@PathVariable Long id, @RequestBody Book book) {
+    public ResponseEntity<?> updateBook(@PathVariable long id, @RequestBody Book book) {
         if (book.getTitle() == null || book.getTitle().trim().isEmpty() || 
             book.getAuthor() == null || book.getAuthor().trim().isEmpty() ||
                 book.getDescription() == null || book.getDescription().trim().isEmpty()) {
@@ -75,7 +75,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteBook(@PathVariable Long id) {
+    public ResponseEntity<?> deleteBook(@PathVariable long id) {
         if (bookService.getBookById(id) == null) {
             return ResponseEntity.status(404).body("Book not found");
         }

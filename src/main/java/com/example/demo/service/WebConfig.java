@@ -10,7 +10,7 @@ import org.springframework.lang.NonNull;
 public class WebConfig implements WebMvcConfigurer {
     
     @Autowired
-    private AdminInterceptor adminInterceptor;
+    private @NonNull AdminInterceptor adminInterceptor;
     
     @Override
     public void addInterceptors(@NonNull InterceptorRegistry registry) {

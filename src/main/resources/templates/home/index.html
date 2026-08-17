@@ -136,7 +136,7 @@
         .book-info { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
         .book-title { 
             font-size: 1rem; font-weight: 700; margin-bottom: 5px; color: white; line-height: 1.3;
-            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;
+            display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;
         }
         .book-author { 
             font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 10px;
@@ -144,7 +144,7 @@
         }
         .book-meta { 
             font-size: 0.8rem; color: var(--accent-2); opacity: 0.8; margin-bottom: 15px;
-            display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;
+            display: -webkit-box; line-clamp: 3; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;
         }
 
         /* ACTION BUTTON ON CARD */

@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.dto.OpenLibraryResponse;
 import com.example.demo.model.Book;
 import com.example.demo.repository.BookRepository;
+
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -29,19 +31,19 @@ public class BookService {
         return bookRepository.findByTitle(title);
     }
 
-    public Book getBookById(Long id) {
+    public Book getBookById(@NonNull Long id) {
         return bookRepository.findById(id).orElse(null);
     }
 
-    public Book saveBook(Book book) {
+    public Book saveBook(@NonNull Book book) {
         return bookRepository.save(book);
     }
 
-    public void deleteBook(Long id) {
+    public void deleteBook(@NonNull Long id) {
         bookRepository.deleteById(id);
     }
 
-    public Book updateBook(Long id, Book updatedBook) {
+    public Book updateBook(@NonNull Long id, @NonNull Book updatedBook) {
         return bookRepository.findById(id).map(book -> {
             book.setTitle(updatedBook.getTitle());
             book.setAuthor(updatedBook.getAuthor());
@@ -51,7 +53,7 @@ public class BookService {
     }
 
     // --- NEW: API Search Method ---
-    public List<Book> searchBooksFromApi(String query) {
+    public List<Book> searchBooksFromApi(@NonNull String query) {
         try {
             OpenLibraryResponse response = webClient.get()
                 .uri(uriBuilder -> uriBuilder
